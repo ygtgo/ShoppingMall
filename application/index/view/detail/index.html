@@ -71,7 +71,7 @@
             <li class="item-bought">
               <div class="sl-wrap">
                 <div class="sl-wrap-cnt">
-                  <div class="item-bought-num"><span class="intro-strong">{$deal->buy_count}</span>人已团购</div>
+                  <div class="item-bought-num"><span class="intro-strong">{$deal.buy_count}</span>人已团购</div>
                 </div>
               </div>
             </li>
@@ -101,7 +101,7 @@
                   {if condition="$flag eq 1"}
                   <a  class="btn-buy btn-buy-qrnew j-btn-buy btn-hit" style="background: #C0C0C0;border-bottom:#C0C0C0; ">立即抢购</a>
                   {else /}
-                  <a href="" class="btn-buy btn-buy-qrnew j-btn-buy btn-hit">立即抢购</a>
+                  <a class="o2o_click btn-buy btn-buy-qrnew j-btn-buy btn-hit">立即抢购</a>
                   {/if}
 
                 </div>
@@ -278,6 +278,11 @@
   $(".branch").mouseenter(function(){
     $(".branch").removeClass("branch-open").addClass("branch-close");
     $(this).removeClass("branch-close").addClass("branch-open");
+  });
+  $(".o2o_click").click(function(){
+    var count = $(".buycount-ctrl input").val();
+    url = "{:url('order/confirm',['id'=>$deal.id])}"+"&count="+count;
+    window.open(url);
   });
 </script>
 </body>
